@@ -2,6 +2,11 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class BugsService {
+  getNotesByBugsId(arg0) {
+    throw new Error('Method not implemented.')
+    // this method should be completed
+  }
+
   async getAll(query = {}) {
     return await dbContext.Bugs.find(query).populate('creator', 'name picture')
   }
@@ -26,7 +31,7 @@ class BugsService {
     }
   }
 
-  async destroy(id) {
+  async close(id) {
     return await dbContext.Bugs.findByIdAndDelete(id)
   }
 }
