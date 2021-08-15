@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-export const Note = new Schema(
+export const NoteSchema = new Schema(
   {
     body: { type: String, required: true },
     bug: { type: Schema.Types.ObjectId, ref: 'Bug', required: true },
