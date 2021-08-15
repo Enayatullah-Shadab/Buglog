@@ -17,7 +17,7 @@ export class BugsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      const bug = await bugsService.getAll()
+      const bug = await bugsService.getAll({ creatorId: req.userInof.id })
       res.send(bug)
     } catch (error) {
       next(error)
@@ -45,8 +45,9 @@ export class BugsController extends BaseController {
 
   async update(req, res, next) {
     try {
+      delete req.body.closed
       req.body.id = req.params.id
-      const bug = await bugsService.update()
+      const bug = await bugsService.update(req.body)
       res.send(bug)
     } catch (error) {
       next(error)
