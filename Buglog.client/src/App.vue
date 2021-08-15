@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="row">
     <router-view />
   </main>
   <footer>
