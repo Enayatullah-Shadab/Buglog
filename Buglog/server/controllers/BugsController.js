@@ -10,9 +10,10 @@ export class BugsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .get('/:id/notes', this.getNotesByBugsId)
       .post('', this.create)
       .put('/:id', this.update)
-      .put('/:id', this.destroy)
+      .delete('/:id', this.close)
   }
 
   async getAll(req, res, next) {
@@ -28,6 +29,15 @@ export class BugsController extends BaseController {
     try {
       const bug = await bugsService.getById(req.params.id)
       res.send(bug)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getNotesByBugsId(req, res, next) {
+    try {
+      const notes = await bugsService.getNotesByBugsId({ bugId: req.params.id })
+      res.send(notes)
     } catch (error) {
       next(error)
     }
@@ -54,10 +64,10 @@ export class BugsController extends BaseController {
     }
   }
 
-  async destroy(req, res, next) {
+  async close(req, res, next) {
     try {
-      req.body.id = req.params.id
-      const bug = await bugsService.destroy()
+      req.body.creatorId = req.userInfo.id
+      const bug = await bugsService.close(req.params.id, req.body)
       res.send(bug)
     } catch (error) {
       next(error)

@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <NoteThread :notes="notes" />
+      <!--NoteThread-->
       </div>
     </div>
   </div>
@@ -37,7 +37,6 @@ export default {
     return {
       bug
     }
-  },
-  components: {}
+  }
 }
 </script>
