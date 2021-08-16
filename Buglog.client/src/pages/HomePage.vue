@@ -2,12 +2,12 @@
 <template>
   <div class="col-12">
     <div class="row">
-      <div class="col-12 d-flex flex-row my-3">
-        <h4 class="mr-auto ml-3">
+      <div class="col-12 d-flex flex-column my-3">
+        <h4 class="mr-auto ml-4">
           Bugs
         </h4>
         <div>
-          <button type="button" class="btn btn-info text-shadow" data-toggle="modal" data-target="#BugModal">
+          <button type="button" class="btn btn-info text-shadow ml-3 mt-3" data-toggle="modal" data-target="#BugModal">
             Add Bug
           </button>
         </div>
@@ -41,8 +41,8 @@ export default {
   text-align: center;
   user-select: none;
   > img{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
   }
 }
 </style>

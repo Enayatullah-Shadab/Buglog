@@ -1,13 +1,12 @@
-
 <template>
-  <div class="bugPage">
+  <div class="col-12">
     <div class="row">
-      <div class="col">
+      <div class="col-12">
         <BugDetails :bug="bug" />
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-12">
         <NoteThread :notes="notes" />
       </div>
     </div>

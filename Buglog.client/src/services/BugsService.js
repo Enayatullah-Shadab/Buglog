@@ -9,24 +9,24 @@ class BugsService {
   }
 
   async getById(id) {
-    const res = await api.get('api/bugs/', id)
+    const res = await api.get('api/bugs/' + id)
     AppState.activeBug = res.data
   }
 
-  async create(body) {
-    const res = await api.post('api/bugs', body)
+  async create(newBug) {
+    const res = await api.post('api/bugs', newBug)
     AppState.activeBug = res.data
     this.getAll()
     return res.data.id
   }
 
-  async update(body, id) {
-    await api.put('api/bugs/', id, body)
+  async update(newBug, id) {
+    await api.put('api/bugs/' + id, newBug)
     this.getAll()
   }
 
-  async destroy(id) {
-    await api.delete('api/bugs/', id)
+  async close(id) {
+    await api.delete('api/bugs/' + id)
     this.getAll()
   }
 }
