@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col">
-      <!--NoteThread-->
+        <NoteThread :notes="notes" />
       </div>
     </div>
   </div>
@@ -20,21 +20,30 @@ import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 import { bugsService } from '../services/BugsService'
 import Pop from '../utils/Notifier'
+
 export default {
-  name: 'Component',
   setup() {
     const route = useRoute()
+    const notes = computed(() => AppState.notes[route.params.bugId] || [])
     const bug = computed(() => AppState.activeBug)
     onMounted(async() => {
       if (route.params.bugId) {
         try {
-          await bugsService.getById(route.params.bugId)
+          await bugsService.getNotesByBugId(route.params.bugId)
         } catch (error) {
           Pop.toast(error, 'error')
         }
       }
     })
+    onMounted(async() => {
+      try {
+        await bugsService.getBugById(route.params.bugId)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
     return {
+      notes,
       bug
     }
   }

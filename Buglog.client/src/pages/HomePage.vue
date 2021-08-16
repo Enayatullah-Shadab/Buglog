@@ -1,14 +1,38 @@
+
 <template>
-  <div></div>
-  <!-- <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <h1 class="my-5 bg-dark text-light p-3 rounded d-flex align-items-center">
-    </h1>
-  </div> -->
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 d-flex flex-row my-3">
+        <h4 class="mr-auto ml-3">
+          Bugs
+        </h4>
+        <div>
+          <button type="button" class="btn btn-info text-shadow" data-toggle="modal" data-target="#BugModal">
+            Add Bug
+          </button>
+        </div>
+      </div>
+      <div class="col-12">
+        <BugThread :bugs="bugs" />
+      </div>
+    </div>
+  </div>
+  <BugModal />
 </template>
 
 <script>
+import { computed, onMounted } from '@vue/runtime-core'
+import { bugsService } from '../services/BugsService'
+import { AppState } from '../AppState'
 export default {
-  name: 'Home'
+  setup() {
+    onMounted(() => {
+      bugsService.getAllBugs()
+    })
+    return {
+      bugs: computed(() => AppState.bugs)
+    }
+  }
 }
 </script>
 
