@@ -27,7 +27,7 @@ import { AppState } from '../AppState'
 export default {
   setup() {
     onMounted(() => {
-      bugsService.getAllBugs()
+      bugsService.getAll()
     })
     return {
       bugs: computed(() => AppState.bugs)
