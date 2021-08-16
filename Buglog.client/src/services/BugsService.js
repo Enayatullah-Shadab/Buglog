@@ -16,18 +16,18 @@ class BugsService {
   async create(body) {
     const res = await api.post('api/bugs', body)
     AppState.activeBug = res.data
-    this.getAllBugs()
+    this.getAll()
     return res.data.id
   }
 
   async update(body, id) {
     await api.put('api/bugs/', id, body)
-    this.getAllBugs()
+    this.getAll()
   }
 
   async destroy(id) {
     await api.delete('api/bugs/', id)
-    this.getAllBugs()
+    this.getAll()
   }
 }
 

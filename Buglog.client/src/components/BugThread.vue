@@ -1,24 +1,24 @@
 <template>
   <div class="row">
-    <div class="col-12 m-1 p-1">
-      <div class="bg-light rounded p-2 d-flex flex-row justify-content-around">
+    <div class="col-12 m- p-">
+      <div class="bg-light rounded p-2 d-flex flex-column float-left ">
         <div class="w-20 text-center">
-          <h5 class="m-1 p-1">
+          <h5 class="m-2 p-2">
             Title:
           </h5>
         </div>
         <div class="w-20 text-center">
-          <h5 class="m-1 p-1">
-            Reported By:
+          <h5 class="m-2 p-2">
+            Reported:
           </h5>
         </div>
         <div class="w-20 text-center">
-          <h5 class="m-1 p-1">
-            Last Modified:
+          <h5 class="m-2 p-2">
+            Modified:
           </h5>
         </div>
         <div class="w-20 text-center">
-          <h5 class="m-1 p-1">
+          <h5 class="m-2 p-2">
             Status:
           </h5>
         </div>

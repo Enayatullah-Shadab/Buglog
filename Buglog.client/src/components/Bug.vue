@@ -42,6 +42,8 @@ export default {
   setup(props) {
     return {
       updatedAt: computed(() => {
+        const updated = new Date(props.bug.updatedAt)
+        return new Intl.DateTimeFormat('en-US').format(updated)
       })
     }
   }

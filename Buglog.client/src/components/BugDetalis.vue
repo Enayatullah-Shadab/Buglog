@@ -1,6 +1,6 @@
 <template>
-  <div class="row mt-2">
-    <div class="col">
+  <div class="row-12 mt-2">
+    <div class="col-12">
       <div class="bg-info rounded p-2">
         {{ bug }}
       </div>
