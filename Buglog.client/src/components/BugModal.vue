@@ -38,7 +38,7 @@
               >
               <small id="descriptionHelpId" class="text-muted">Input Bug Description</small>
             </div>
-            <button type="submit" class="btn btn-info">
+            <button type="submit" class="btn btn-primary">
               Submit
             </button>
           </form>

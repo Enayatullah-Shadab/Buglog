@@ -68,7 +68,7 @@ export class BugsController extends BaseController {
     try {
       req.body.creatorId = req.userInfo.id
       // @ts-ignore
-      const bug = await bugsService.close(req.params.id, req.body)
+      const bug = await bugsService.delete(req.params.id, req.body)
       res.send(bug)
     } catch (error) {
       next(error)

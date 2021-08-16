@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="BugThread">
     <div class="col-12 m- p-">
       <div class="bg-light rounded p-2 d-flex flex-column float-left ">
         <div class="w-20 text-center">
