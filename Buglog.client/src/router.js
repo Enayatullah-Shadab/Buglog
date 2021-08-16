@@ -12,9 +12,15 @@ const routes = [
     component: loadPage('HomePage')
   },
   {
-    path: '/:bugId',
+    path: '/:bug',
     name: 'BugsPage',
     component: loadPage('BugsPage')
+  },
+  {
+    path: '/note',
+    name: 'Note',
+    component: loadPage('NotePage'),
+    beforeEnter: authGuard
   },
   {
     path: '/account',
